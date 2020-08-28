@@ -1,0 +1,172 @@
+from telegram.ext import Updater
+updater = Updater(token= '1334327708:AAHjrZsGuEVm20qtv4WFe1FIQyC10W5xX48 ' , use_context=True)
+
+dispatcher = updater.dispatcher
+
+import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+logger = logging.getLogger(__COVIDBot__)
+
+dispatcher = updater.dispatcher 
+def start(update, context):
+    keyboard = [[InlineKeyboardButton("Option 1", Set_camera='1'),
+     InlineKeyboardButton("Option 2", stop _now='2')],
+
+def welcome (update, context) :
+context.bot.send_message(chat_id=update.effective_chat.id , text="thanks for using me
+
+def button(update, context):
+
+query = update.callback_query query.edit_message_text(text="Selected option: {}".format(query.data))
+
+Vue component  ( 'button - counter ' , {
+      data : function       (   )     {
+           return {
+             Count : 10
+           }
+     },
+    template;"<button            v - on : click ="count ++" >})
+
+1. Load the dataset from keras datasets module
+
+from keras.datasets import cifar10import matplotlib.pyplot as plt (train_X,train_Y),(test_X,test_Y)=cifar10.load_data()
+
+2. Plot some images from the dataset to visualize the dataset
+
+n=6plt.figure(figsize=(20,10))for i in range(n):plt.subplot(330+1+i)plt.imshow(train_X[i])plt.show()
+
+3. Import the required layers and modules to create our convolution neural net architecture
+
+from keras.models import Sequentialfrom keras.layers import Densefrom keras.layers import Dropoutfrom keras.layers import Flattenfrom keras.constraints import maxnormfrom keras.optimizers import SGDfrom keras.layers.convolutional import Conv2Dfrom keras.layers.convolutional import MaxPooling2Dfrom keras.utils import np_utils
+
+4. Convert the pixel values of the dataset to float type and then normalize the dataset
+
+train_x=train_X.astype('float32')test_X=test_X.astype('float32') train_X=train_X/255.0test_X=test_X/255.0
+
+5. Now perform the one-hot encoding for target classes
+
+train_Y=np_utils.to_categorical(train_Y)test_Y=np_utils.to_categorical(test_Y) num_classes=test_Y.shape[1]
+
+6. Create the sequential model and add the layers
+
+model=Sequential()model.add(Conv2D(32,(3,3),input_shape=(32,32,3), padding='same',activation='relu', kernel_constraint=maxnorm(3)))model.add(Dropout(0.2))model.add(Conv2D(32,(3,3),activation='relu',padding='same',kernel_constraint=maxnorm(3)))model.add(MaxPooling2D(pool_size=(2,2)))model.add(Flatten())model.add(Dense(512,activation='relu',kernel_constraint=maxnorm(3)))model.add(Dropout(0.5))model.add(Dense(num_classes, activation='sof
+
+results={
+   0:'aeroplane',
+   1:'automobile',
+   2:'bird',
+   3:'cat',
+   4:'deer',
+   5:'dog',
+   6:'frog',
+   7:'horse',
+   8:'ship',
+   9:'truck'
+}
+from PIL import Image
+import numpy as np
+im=Image.open("__image_path__")
+# the input image is required to be in the shape of dataset, i.e (32,32,3)
+ 
+im=im.resize((32,32))
+im=np.expand_dims(im,axis=0)
+im=np.array(im)
+pred=model.predict_classes([im])[0]
+print(pred,results[pred])
+
+HOGCV = cv2.HOGDescriptor()
+HOGCV.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
+def detect(frame):
+    bounding_box_cordinates, weights =  HOGCV.detectMultiScale(frame, winStride = (4, 4), padding = (8, 8), scale = 1.03)
+    
+    person = 1
+    for x,y,w,h in bounding_box_cordinates:
+        cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0), 2)
+        cv2.putText(frame, f'person {person}', (x,y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 1)
+        person += 1
+    
+    cv2.putText(frame, 'Status : Detecting ', (40,40), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255,0,0), 2)
+    cv2.putText(frame, f'Total Persons : {person-1}', (40,70), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255,0,0), 2)
+    cv2.imshow('output', frame)
+    return frame
+
+def humanDetector(args):
+    image_path = args["image"]
+    video_path = args['video']
+    if str(args["camera"]) == 'true' : camera = True 
+    else : camera = False
+    writer = None
+    if args['output'] is not None and image_path is None:
+        writer = cv2.VideoWriter(args['output'],cv2.VideoWriter_fourcc(*'MJPG'), 10, (600,600))
+    if camera:
+        print('[INFO] Opening Web Cam.')
+        detectByCamera(ouput_path,writer)
+    elif video_path is not None:
+        print('[INFO] Opening Video from path.')
+        detectByPathVideo(video_path, writer)
+    elif image_path is not None:
+        print('[INFO] Opening Image from path.')
+
+ef detectByPathVideo(path, writer):
+    video = cv2.VideoCapture(path)
+    check, frame = video.read()
+    if check == False:
+        print('Video Not Found. Please Enter a Valid Path (Full path of Video Should be Provided).')
+        return
+    print('Detecting people...')
+    while video.isOpened():
+        #check is True if reading was successful 
+        check, frame =  video.read()
+
+ if __name__ == "__main__":
+    HOGCV = cv2.HOGDescriptor()
+    HOGCV.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
+    args = argsParser()
+    humanDetector(args)
+
+from keras.datasets import cifar10
+import matplotlib.pyplot as plt
+ 
+
+plt.figure(figsize=(20,10))
+for i in range(n):
+plt.subplot(330+1+i)
+plt.imshow(train_X[i])
+plt.show()
+
+import cv2
+import imutils
+import numpy as np
+import argparse
+
+Import the required layers and modules
+
+Sequential
+from keras.layers import Dense
+from keras.layers import Dropout
+from keras.layers import Flatten
+from keras.constraints import maxnorm
+from keras.optimizers import SGD
+from keras.layers.convolutional import Conv2D
+from keras.layers.convolutional import MaxPooling2D
+
+train_X.astype('float32')
+test_X=test_X.astype('float32')
+ 
+train_X=train_X/255.0
+test_X=test_X/255.0
+
+HOGCV = cv2.HOGDescriptor()
+HOGCV.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
+def detect(frame):
+    bounding_box_cordinates, weights =  HOGCV.detectMultiScale(frame, winStride = (4, 4), padding = (8, 8), scale = 1.03)
+
+if__name =='__main__':
+
+
+
+
+
+
+
